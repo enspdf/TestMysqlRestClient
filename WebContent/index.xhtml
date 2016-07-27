@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+	<ui:include src="/layout/layout.xhtml" />
+
+	<h:form>
+		<p:panel id="panel" header="Users" style="margin-bottom:10px;"
+			toggleable="true" toggleOrientation="horizontal">
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel for="username" value="Username: " />
+				<p:inputText value="#{userEntity.username}" id="username"
+					required="true" />
+
+				<h:outputLabel for="password" value="Password: " />
+				<p:password value="#{userEntity.password}" id="password"
+					required="true" />
+			</h:panelGrid>
+			<p:commandButton value="Save User" update="panel"
+				action="#{userBean.addUser(userEntity)}" />
+		</p:panel>
+	</h:form>
+
+	<h:form>
+		<p:panel id="panel2" header="Countries" style="margin-bottom:10px;"
+			toggleable="true" toggleOrientation="horizontal">
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel value="Country name: " for="country_name" />
+				<p:inputText value="#{countryEntity.country_name}" id="country_name" />
+			</h:panelGrid>
+			<p:commandButton value="Save Country" update="panel2"
+				action="#{commonBean.addCountry(countryEntity)}" />
+		</p:panel>
+	</h:form>
+
+	<h:form>
+		<p:panel id="panel3" header="Departmens" style="margin-bottom:10px;"
+			toggleable="true" toggleOrientation="horizontal">
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel for="country_id" value="Country id: " />
+				<p:spinner id="country_id" value="#{departmentEntity.country_id}"
+					min="1" />
+
+				<h:outputLabel for="department_name" value="Department name: " />
+				<p:inputText id="department_name"
+					value="#{departmentEntity.department_name}" />
+			</h:panelGrid>
+			<p:commandButton value="Save Department" update="panel3"
+				action="#{commonBean.addDepartment(departmentEntity)}" />
+		</p:panel>
+	</h:form>
+
+	<h:form>
+		<p:panel id="panel4" header="Departmens" style="margin-bottom:10px;"
+			toggleable="true" toggleOrientation="horizontal">
+			<h:panelGrid columns="2" cellpadding="5">
+				<p:outputLabel for="department_id" value="Department id: " />
+				<p:spinner id="department_id" value="#{cityEntity.department_id}"
+					min="1" />
+
+				<p:outputLabel for="city_name" value="City name: " />
+				<p:inputText id="city_name" value="#{cityEntity.city_name}" />
+			</h:panelGrid>
+			<p:commandButton value="Save City" update="panel4"
+				action="#{commonBean.addCity(cityEntity)}" />
+		</p:panel>
+	</h:form>
+
+</h:body>
+</html>
