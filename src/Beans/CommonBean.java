@@ -1,11 +1,15 @@
 package Beans;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
 import Entities.City;
 import Entities.Country;
 import Entities.Department;
+import Entities.Entity;
 import Requests.GetRequests;
 import Requests.PostRequests;
 
@@ -41,4 +45,9 @@ public class CommonBean {
 			post.PostRequestCity(city);
 	}
 	
+	public List<Entity> allData() {
+		List<Entity> data = new ArrayList<Entity>();
+		data = get.getAllData();
+		return data;
+	}
 }

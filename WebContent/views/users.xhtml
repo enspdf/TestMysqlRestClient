@@ -1,0 +1,33 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+
+	<ui:include src="/layout/layout.xhtml" />
+
+	<h:form>
+		<p:panel id="panel" header="Users" style="margin-bottom:10px;"
+			toggleable="true" toggleOrientation="horizontal">
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel for="username" value="Username: " />
+				<p:inputText value="#{userEntity.username}" id="username"
+					required="true" />
+
+				<h:outputLabel for="password" value="Password: " />
+				<p:password value="#{userEntity.password}" id="password"
+					required="true" />
+			</h:panelGrid>
+			<p:commandButton value="Save User" update="panel"
+				action="#{userBean.addUser(userEntity)}" />
+		</p:panel>
+	</h:form>
+
+</h:body>
+</html>

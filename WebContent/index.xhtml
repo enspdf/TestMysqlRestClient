@@ -13,23 +13,6 @@
 	<ui:include src="/layout/layout.xhtml" />
 
 	<h:form>
-		<p:panel id="panel" header="Users" style="margin-bottom:10px;"
-			toggleable="true" toggleOrientation="horizontal">
-			<h:panelGrid columns="2" cellpadding="5">
-				<h:outputLabel for="username" value="Username: " />
-				<p:inputText value="#{userEntity.username}" id="username"
-					required="true" />
-
-				<h:outputLabel for="password" value="Password: " />
-				<p:password value="#{userEntity.password}" id="password"
-					required="true" />
-			</h:panelGrid>
-			<p:commandButton value="Save User" update="panel"
-				action="#{userBean.addUser(userEntity)}" />
-		</p:panel>
-	</h:form>
-
-	<h:form>
 		<p:panel id="panel2" header="Countries" style="margin-bottom:10px;"
 			toggleable="true" toggleOrientation="horizontal">
 			<h:panelGrid columns="2" cellpadding="5">
