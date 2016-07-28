@@ -5,7 +5,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-	
+
 </h:head>
 
 <h:body>
@@ -15,10 +15,22 @@
 	<h:form>
 		<p:panel id="query" header="All Data" style="margin-bottom:10px;"
 			toggleable="true" toggleOrientation="horizontal">
-			
-			<p:commandButton value="Fetch Data" update="query"
-				action="#{commonBean.allData}" />
-				
+
+			<p:commandButton value="Fetch Data" update="data"
+				action="#{dataBean.listEntities()}" />
+
+			<p:dataTable value="#{dataBean.entities}" var="ent" id="data" paginator="true">
+				<p:column headerText="Country">
+					<p:outputLabel value="#{ent.country.country_name}" />
+				</p:column>
+				<p:column headerText="Department">
+					<p:outputLabel value="#{ent.department.department_name}" />
+				</p:column>
+				<p:column headerText="City">
+					<p:outputLabel value="#{ent.city.city_name}" />
+				</p:column>
+			</p:dataTable>
+
 		</p:panel>
 	</h:form>
 

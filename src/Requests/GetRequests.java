@@ -34,9 +34,9 @@ public class GetRequests {
 			Entity entity = new Entity();
 			entity.getCountry().setCountry_id(data.getJSONObject("country").getInt("country_id"));
 			entity.getCountry().setCountry_name(data.getJSONObject("country").getString("country_name"));
-			entity.getDepartment().setCountry_id(data.getJSONObject("department").getInt("country_id"));
+			entity.getDepartment().setCountry_id(data.getJSONObject("department").isNull("country_id")? null : data.getJSONObject("department").getInt("country_id"));
 			entity.getDepartment().setDepartment_id(data.getJSONObject("department").getInt("department_id"));
-			entity.getDepartment().setDepartment_name(data.getJSONObject("department").getString("department_name"));
+			entity.getDepartment().setDepartment_name(data.getJSONObject("department").isNull("department_name")?null:data.getJSONObject("department").getString("department_name"));
 			entity.getCity().setCity_id(data.getJSONObject("city").getInt("city_id"));
 			entity.getCity().setCity_name(data.getJSONObject("city").isNull("city_name")? null : data.getJSONObject("city").getString("city_name"));
 			entity.getCity().setDepartment_id(data.getJSONObject("city").getInt("department_id"));
